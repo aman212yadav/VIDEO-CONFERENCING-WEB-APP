@@ -1,5 +1,5 @@
 console.log(location)
-const socket=io('/',{transports: ['websocket']});
+const socket=io('/');
 const videoGrid =document.getElementById('video-grid');
 let myStream;
 

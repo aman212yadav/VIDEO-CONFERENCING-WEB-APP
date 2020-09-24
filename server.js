@@ -4,6 +4,8 @@ const app=express();
 const server=require('http').Server(app);
 const io=require('socket.io')(server);
 const { v4: uuidv4 } = require('uuid');
+const expressStatusMonitor = require('express-status-monitor');
+app.use(expressStatusMonitor({ websocket: io, port: app.get('port') }));
 app.use('/peerjs', require('peer').ExpressPeerServer(server, {
 	debug: true
 }))
